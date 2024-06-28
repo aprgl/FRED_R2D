@@ -1,17 +1,8 @@
 /* The "Hello world!" of microcontrollers. Blink LED on/off */
+#include "fred_r2d.h"
 #include <stdint.h>
 #include "stm8.h"
-#include "stm8s_i2c.h"
-
-
-/* Build in LED is in pin B5 (STM8S103 board) or D3 (STM8S003F3 board) */
-#ifdef STM8S103
-#define LED_PORT    PA
-#define LED_PIN     PIN1
-#else
-#define LED_PORT    PA
-#define LED_PIN     PIN1
-#endif
+//#include "stm8s_i2c.h"
 
 /* Simple busy loop delay */
 void delay(unsigned long count) {
@@ -19,8 +10,22 @@ void delay(unsigned long count) {
         nop();
 }
 
+/*
+void display_test(){
+  I2C_Cmd( ENABLE);
+  I2C_Init(I2C_SPEED, I2C_SLAVE_ADDRESS7, I2C_DUTYCYCLE_2, I2C_ACK_CURR,
+           I2C_ADDMODE_7BIT, 16);
+
+}*/
+
 int main(void)
 {
+
+    //board_setup();
+    //display_test();
+
+
+    //CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
     /* Set clock to full speed (16 Mhz) */
     CLK_CKDIVR = 0;
 
